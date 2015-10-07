@@ -1,0 +1,12 @@
+{
+  "name": "KalturaVPaaSUsageDashboardHtml",
+  "version": "0.0.1",
+  "author": "Vitaliy Tarash <tarash@steelkiwi.com>",
+  "devDependencies": {
+    "bootstrap": "^3.3.5",
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.3.0"
+  }
+}
