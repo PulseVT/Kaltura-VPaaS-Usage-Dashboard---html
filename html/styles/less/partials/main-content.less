@@ -1,0 +1,101 @@
+@table-border: 1px solid @dark-gray;
+@panel-table-value-font-size: @large-font*1.2;
+@padding: 10px;
+
+.main-content{
+	.row-fluid{
+		margin-bottom: 10px;
+	}
+
+	.title-text{
+		font-size: @large-font;
+		color: @text-gray;
+		padding: 0 @padding;
+		line-height: 34px;
+
+		.export-to-csv{
+			float: right;
+			color: @dark-aqua;
+			font-size: @medium-font;
+			cursor: pointer;
+		}
+	}
+
+	table{
+		outline: @table-border;
+		tr{
+			td,th{
+				&:not(:last-child){
+					border-right: @table-border;
+				}
+			}
+		}
+	}
+
+	.panel-table{
+		thead{
+			.gradient-table();
+			tr{
+				th{
+					margin: @padding 0 @padding 0 !important;
+					padding: 0 @padding 0 @padding;
+					height: 120px;
+					position: relative;
+					font-weight: normal;
+
+					.title,.units{
+						color: @text-gray;
+						font-size: @small-font;
+					}
+
+					.value{
+						position: absolute;
+						bottom: 0;
+						left: @padding;
+						color: @dark-aqua;
+						font-size: @panel-table-value-font-size;
+						line-height: @panel-table-value-font-size;
+					}
+				}
+			}
+		}
+	}
+
+	.usual-table{
+		thead{
+			.gradient-table();
+			tr{
+				th{
+					padding: 5px @padding 5px @padding;
+					font-size: @small-font;
+				}
+			}
+		}
+		tbody{
+			tr{
+				td{
+					padding: @padding;
+					font-size: @small-font;
+				}
+
+				&.even{
+					td{
+						background: @white-bg;
+					}
+				}
+
+				&.odd{
+					td{
+						background: @main-bg;
+					}
+				}
+
+				&:hover{
+					td{
+						background: @dark-bg;
+					}
+				}
+			}
+		}
+	}
+}

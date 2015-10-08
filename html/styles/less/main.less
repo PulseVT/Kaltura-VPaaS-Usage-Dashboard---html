@@ -1,19 +1,10 @@
 //common
-@import 'constants.less';
-@import 'mixins.less';
+@import 'common/constants.less';
+@import 'common/mixins.less';
+@import 'common/common.less';
 //partials
-@import 'header.less';
-
-//main layout
-
-body{
-	#kmcHeader{
-		height: 32px;
-	}
-	font-family: arial,sans-serif;
-	background: @main-bg;
-	.usage-dashboard{
-		padding: 10px;
-		@import 'side-menu.less';
-	}
-}
+@import 'partials/header.less';
+@import 'partials/side-menu.less';
+@import 'partials/main-content.less';
+//pages
+@import 'pages/overall-usage-report.less';
