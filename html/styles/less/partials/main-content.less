@@ -30,6 +30,11 @@
 				}
 			}
 		}
+
+		&.half-width{
+			width: 50%;
+			min-width: @min-width/2;
+		}
 	}
 
 	.panel-table{
@@ -42,6 +47,7 @@
 					height: 120px;
 					position: relative;
 					font-weight: normal;
+					display: inline-block;
 
 					.title,.units{
 						color: @text-gray;

@@ -101,6 +101,10 @@ body .usage-dashboard {
 .main-content table tr th:not(:last-child) {
   border-right: 1px solid #d8d7d7;
 }
+.main-content table.half-width {
+  width: 50%;
+  min-width: 400px;
+}
 .main-content .panel-table thead {
   background: -moz-linear-gradient(top, #fafafa 0%, #e0e0e0 100%);
   /* FF3.6+ */
@@ -125,6 +129,7 @@ body .usage-dashboard {
   height: 120px;
   position: relative;
   font-weight: normal;
+  display: inline-block;
 }
 .main-content .panel-table thead tr th .title,
 .main-content .panel-table thead tr th .units {
@@ -174,9 +179,21 @@ body .usage-dashboard {
 .main-content .usual-table tbody tr:hover td {
   background: #e8e8e8;
 }
-#overall-usage-dashboard .panel-table thead th {
+#overall-usage-report .panel-table thead th {
   width: 16.666666666666668%;
 }
-#overall-usage-dashboard .usual-table thead th {
+#overall-usage-report .usual-table thead th {
   width: 14.285714285714286%;
+}
+#plays-report .usual-table thead th {
+  width: 50%;
+}
+#bandwidth-report .usual-table thead th {
+  width: 50%;
+}
+#bandwidth-report .panel-table thead th {
+  width: 50%;
+}
+#bandwidth-report .usual-table thead th {
+  width: 50%;
 }
