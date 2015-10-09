@@ -1,0 +1,19 @@
+{
+  "name": "Kaltura VPaaS Usage Dashboard - html",
+  "version": "0.0.1",
+  "authors": [
+    "Vitaliy Tarash <vitaliy.tarash@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-flot": "~0.0.13",
+    "angular": "~1.4.7",
+    "flot-axislabels": "*"
+  }
+}
