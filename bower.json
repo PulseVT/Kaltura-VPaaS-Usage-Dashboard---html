@@ -14,6 +14,7 @@
   "devDependencies": {
     "angular-flot": "~0.0.13",
     "angular": "~1.4.7",
-    "flot-axislabels": "*"
+    "flot-axislabels": "*",
+    "tc-angular-chartjs": "~1.0.12"
   }
 }

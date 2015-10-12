@@ -1,20 +1,68 @@
-module = angular.module 'KalturaUsageDashboard', ['angular-flot']
+module = angular.module 'KalturaUsageDashboard', ['angular-flot', 'tc.chartjs']
 
 module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 
-	graphColumn = '#02a3d1'
-	graphAxis = '#c2d2e1'
+	colorColumn = '#02a3d1'
+	colorAxis = '#c2d2e1'
 	mainBg = '#f0eeef'
+	borderWidth = 7
+
+	#CHART.JS
+
+	$scope.chart =
+		data:
+			labels: ['August, 2015', 'September, 2015', 'October, 2015', 'November, 2015']
+			datasets: [
+				# label: 'Plays'
+				fillColor: colorColumn
+				strokeColor: colorColumn
+				data: [12, 37, 1, 75]
+			]
+
+		options:
+			responsive: yes
+			# Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+			scaleBeginAtZero : yes
+
+			#Boolean - Whether grid lines are shown across the chart
+			scaleShowGridLines : no
+
+			#String - Colour of the grid lines
+			scaleGridLineColor : "rgba(0,0,0,.05)"
+
+			#Number - Width of the grid lines
+			scaleGridLineWidth : 1
+
+			#Boolean - If there is a stroke on each bar
+			barShowStroke : yes
+
+			#Number - Pixel width of the bar stroke
+			barStrokeWidth : 2
+
+			#Number - Spacing between each of the X value sets
+			barValueSpacing : 12
+
+			#Number - Spacing between data sets within X values
+			barDatasetSpacing : 1
+
+			#String - A legend template
+			legendTemplate : '<ul class="tc-chart-js-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+	
+
+	#FLOT
+
+	data = [
+		[0,	12]
+		[1,	37]
+		[2,	1]
+		[3,	75]
+	]
 
 	$scope.graph =
 		data: [
 			# label: '2012 Average Temperature'
-			color: graphColumn
-			data: [
-				[3,	12]
-				[4,	37]
-				[5,	3]
-			]
+			color: colorColumn
+			data: data
 			# shadowSize: 2
 			# highlightColor: '#bbbbbb'
 		]
@@ -24,38 +72,111 @@ module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 				bars:
 					show: yes
 					fill: yes
-					fillColor: graphColumn
+					fillColor: colorColumn
+				points:
+					show: yes
+					radius: 3
+					lineWidth: 1
+			tooltip:
+				show: yes
+				content: (label, x, y, flot) ->
+					"""
+						<div>#{flot.series.xaxis.ticks[flot.dataIndex].label}</div>
+						<div>#{flot.series.data[flot.dataIndex][1]}</div>
+					"""
 			bars:
 				align: 'center'
-				barWidth: 0.7
+				barWidth: 0.75
 			xaxis:
+				show: yes
+				color: colorAxis
 				axisLabel: 'Months'
-				# axisLabelUseCanvas: yes
-				# axisLabelFontSizePixels: 12
-				axisLabelFontFamily: 'Verdana, Arial'
-				# axisLabelPadding: 10
+				axisLabelUseCanvas: yes
+				axisLabelFontSizePixels: 12
+				axisLabelFontFamily: 'arial,sans serif'
+				axisLabelPadding: 12
 				ticks: [
-					[3,	'August, 2015']
-					[4,	'September, 2015']
-					[5,	'October, 2015']
+					[0,	'August, 2015']
+					[1,	'September, 2015']
+					[2,	'October, 2015']
+					[3,	'November, 2015']
 				]
 				tickLength: 0
+				min: -0.5
+				max: data.length - 0.5
 			yaxis:
 				axisLabel: 'Plays Number'
-				# axisLabelUseCanvas: yes
-				# axisLabelFontSizePixels: 12
-				# axisLabelFontFamily: 'Verdana, Arial'
-				# axisLabelPadding: 1
-				tickFormatter: (v, axis) -> v
+				color: colorAxis
+				axisLabelUseCanvas: yes
+				axisLabelFontSizePixels: 12
+				axisLabelFontFamily: 'arial,sans serif'
+				axisLabelPadding: 10
+				# tickFormatter: (v, axis) -> v
 				# alignTicksWithAxis: 10
-				tickLength: 0
+				reserveSpace: yes
+				tickLength: 10
+				# tickSize: 5
+				# min: -1
 			legend:
 				noColumns: 0
 				labelBoxBorderColor: '#000000'
 				position: 'nw'
 			grid:
+				show: yes
 				hoverable: yes
 				clickable: yes
-				borderWidth: 0
+				# mouseActiveRadius: 10
+				borderWidth:
+					top: 0
+					right: 0
+					bottom: borderWidth
+					left: borderWidth
+				borderColor: colorAxis
 				backgroundColor: mainBg
-				aboveData: yes
+				aboveData: no
+				axisMargin: 10
+				# markings: (axes) ->
+				# 	markings = [
+				# 		xaxis:
+				# 			from: axes.xaxis.min
+				# 			to: axes.xaxis.min
+				# 		yaxis:
+				# 			from: axes.yaxis.min
+				# 			to: axes.yaxis.max
+				# 		color: colorAxis
+				# 		lineWidth: borderWidth
+				# 	,
+				# 		xaxis:
+				# 			from: axes.xaxis.min
+				# 			to: axes.xaxis.max
+				# 		yaxis:
+				# 			from: axes.yaxis.min
+				# 			to: axes.yaxis.min
+				# 		color: colorAxis
+				# 		lineWidth: borderWidth
+				# 	]
+
+				# 	N = (axes.yaxis.max - axes.yaxis.min) / 5
+				# 	Ymarkings = for y in [1..N]
+				# 		xaxis:
+				# 			from: axes.xaxis.min
+				# 			to: axes.xaxis.min
+				# 		yaxis:
+				# 			from: (y-1)*5 + 0.1
+				# 			to: y*5 - 0.3
+				# 		color: colorAxis
+				# 		lineWidth: borderWidth
+
+				# 	M = axes.xaxis.ticks[0].v
+				# 	N = axes.xaxis.ticks[axes.xaxis.ticks.length-1].v
+				# 	Xmarkings = for x in [M..N]
+				# 		xaxis:
+				# 			from: x-0.5+0.005
+				# 			to: x+0.5-0.005
+				# 		yaxis:
+				# 			from: axes.yaxis.min
+				# 			to: axes.yaxis.min
+				# 		color: colorAxis
+				# 		lineWidth: borderWidth
+
+				# 	markings.concat Xmarkings.concat Ymarkings
