@@ -1,6 +1,39 @@
 var module;
 
-module = angular.module('KalturaUsageDashboard', ['angular-flot', 'tc.chartjs']);
+module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date']);
+
+module.directive('datepicker', function() {
+  return {
+    restrict: 'A',
+    replace: true,
+    template: "<span class='datepicker'>\n	<input ui-date='datepickerOptions' name='name' ng-model='model'/>\n	<span class='icon' ng-click='open()'>\n		<i class='fa fa-calendar'></i>\n	</span>\n</span>",
+    controller: function($scope, $element) {
+      $scope.options = {
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '2000:-0'
+      };
+      if (!$scope.name) {
+        $scope.name = 'datepicker';
+      }
+      if (!$scope.model) {
+        $scope.model = new Date;
+      }
+      $scope.open = function() {
+        $element.find('input').datepicker('show');
+        return null;
+      };
+      return $scope.hide = function() {
+        $element.find('input').datepicker('hide');
+        return null;
+      };
+    },
+    scope: {
+      model: '=datepicker',
+      name: '=?'
+    }
+  };
+});
 
 module.controller('KalturaUsageDashboardCtrl', function($scope) {
   var borderWidth, colorAxis, colorColumn, data, mainBg;
@@ -46,11 +79,6 @@ module.controller('KalturaUsageDashboardCtrl', function($scope) {
           show: true,
           fill: true,
           fillColor: colorColumn
-        },
-        points: {
-          show: true,
-          radius: 3,
-          lineWidth: 1
         }
       },
       tooltip: {
@@ -84,7 +112,7 @@ module.controller('KalturaUsageDashboardCtrl', function($scope) {
         axisLabelFontFamily: 'arial,sans serif',
         axisLabelPadding: 10,
         reserveSpace: true,
-        tickLength: 10
+        tickLength: 15
       },
       legend: {
         noColumns: 0,

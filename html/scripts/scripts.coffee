@@ -1,7 +1,38 @@
-module = angular.module 'KalturaUsageDashboard', ['angular-flot', 'tc.chartjs']
+module = angular.module 'KalturaUsageDashboard', ['angular-flot', 'ui.date']
+
+module.directive 'datepicker', ->
+	restrict: 'A'
+	replace: yes
+	template: """
+		<span class='datepicker'>
+			<input ui-date='datepickerOptions' name='name' ng-model='model'/>
+			<span class='icon' ng-click='open()'>
+				<i class='fa fa-calendar'></i>
+			</span>
+		</span>
+		"""
+	controller: ($scope, $element) ->
+		$scope.options =
+			changeYear: yes
+			changeMonth: yes
+			yearRange: '2000:-0'
+		$scope.name = 'datepicker' unless $scope.name
+		$scope.model = new Date unless $scope.model
+		$scope.open = ->
+			$element.find('input').datepicker 'show'
+			null
+		$scope.hide = ->
+			$element.find('input').datepicker 'hide'
+			null
+	scope:
+		model: '=datepicker'
+		name: '=?'
 
 module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 
+	#datepicker
+
+	#constants for graph
 	colorColumn = '#02a3d1'
 	colorAxis = '#c2d2e1'
 	mainBg = '#f0eeef'
@@ -73,10 +104,10 @@ module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 					show: yes
 					fill: yes
 					fillColor: colorColumn
-				points:
-					show: yes
-					radius: 3
-					lineWidth: 1
+				# points:
+				# 	show: yes
+				# 	radius: 3
+				# 	lineWidth: 1
 			tooltip:
 				show: yes
 				content: (label, x, y, flot) ->
@@ -114,7 +145,7 @@ module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 				# tickFormatter: (v, axis) -> v
 				# alignTicksWithAxis: 10
 				reserveSpace: yes
-				tickLength: 10
+				tickLength: 15
 				# tickSize: 5
 				# min: -1
 			legend:

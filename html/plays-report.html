@@ -18,13 +18,13 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" href="styles/kmc.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="styles/kmc-analytics.css">
-	<style type="text/css">
-		@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style><style type="text/css" media="screen">#kcms {visibility:hidden}
-	</style>
+
 	<link rel="stylesheet" type="text/css" media="screen" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
+	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="styles/usage-dashboard.css">
 </head>
-<body ng-controller='KalturaUsageDashboardCtrl'>
+<body ng-controller='KalturaUsageDashboardCtrl' ng-cloak>
 	<div id="kmcHeader">
 		<div id="logo"></div>
 		<ul id="hTabs">
@@ -128,7 +128,9 @@
 
 			<div class='main-content container-fluid span10' id='plays-report'>
 				<div class='row-fluid controls-row'>
-
+					<span class='text'>Dates:</span>
+					<span datepicker='dateMin'></span>
+					<span datepicker='dateMax'></span>
 				</div>
 
 				<div class='row-fluid title-text'>
@@ -176,6 +178,7 @@
 	</div>
 
 	<script type="text/javascript" src='../bower_components/jquery/dist/jquery.js'></script>
+	<script type="text/javascript" src='../bower_components/jquery-ui/jquery-ui.min.js'></script>
 	<script type="text/javascript" src='../bower_components/jquery-flot/jquery.flot.js'></script>
 	<script type="text/javascript" src='../bower_components/jquery-flot/jquery.flot.canvas.js'></script>
 	<script type="text/javascript" src='../bower_components/jquery-flot/jquery.flot.categories.js'></script>
@@ -192,10 +195,10 @@
 	<script type="text/javascript" src='../bower_components/jquery-flot/jquery.flot.time.js'></script>
 	<script type="text/javascript" src='../bower_components/flot-axislabels/jquery.flot.axislabels.js'></script>
 	<script type="text/javascript" src='../bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js'></script>
-	<script type="text/javascript" src='../bower_components/Chart.js/Chart.js'></script>
+
 	<script type="text/javascript" src='../bower_components/angular/angular.min.js'></script>
 	<script type="text/javascript" src='../bower_components/angular-flot/angular-flot.js'></script>
-	<script type="text/javascript" src='../bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js'></script>
+	<script type="text/javascript" src="../bower_components/angular-ui-date/src/date.js"></script>
 	<script type="text/javascript" src='scripts/scripts.js'></script>
 
 	<!--[if lte IE 8]>

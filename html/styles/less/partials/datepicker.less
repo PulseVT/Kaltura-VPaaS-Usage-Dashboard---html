@@ -1,0 +1,50 @@
+@radius: 4px;
+@size: 24px;
+@icon-size: 14px;
+
+.datepicker{
+	height: @size;
+	line-height: @size;
+	padding: 0 10px;
+	input{
+		float: left;
+		font-size: @small-font;
+		height: @size;
+		line-height: @size;
+		width: 100px;
+		display: block;
+		border-bottom-left-radius: @radius;
+		border-top-left-radius: @radius;
+		border: 1px solid @dark-gray;
+		border-right: 0;
+		background: @white-bg;
+	}
+	.icon{
+		.gradient-table();
+		float: left;
+		cursor: pointer;
+		height: @size;
+		line-height: @size;
+		width: @size;
+		display: block;
+		border: 1px solid @dark-gray;
+		border-bottom-right-radius: @radius;
+		border-top-right-radius: @radius;
+		i{
+			display: block;
+			height: @icon-size;
+			width: @icon-size;
+			position: relative;
+			margin: auto;
+			top: 3px;
+		}
+	}
+}
+
+.ui-datepicker-div{
+	.ui-datepicker-header{
+		.ui-datepicker-title{
+
+		}
+	}
+}
