@@ -112,9 +112,10 @@ module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 				show: yes
 				content: (label, x, y, flot) ->
 					"""
-						<div>#{flot.series.xaxis.ticks[flot.dataIndex].label}</div>
-						<div>#{flot.series.data[flot.dataIndex][1]}</div>
+						<div class='text'>#{flot.series.xaxis.ticks[flot.dataIndex].label}</div>
+						<div class='value'>#{flot.series.data[flot.dataIndex][1]}</div>
 					"""
+				cssClass: 'graph-tooltip'
 			bars:
 				align: 'center'
 				barWidth: 0.75

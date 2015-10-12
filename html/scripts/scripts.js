@@ -84,8 +84,9 @@ module.controller('KalturaUsageDashboardCtrl', function($scope) {
       tooltip: {
         show: true,
         content: function(label, x, y, flot) {
-          return "<div>" + flot.series.xaxis.ticks[flot.dataIndex].label + "</div>\n<div>" + flot.series.data[flot.dataIndex][1] + "</div>";
-        }
+          return "<div class='text'>" + flot.series.xaxis.ticks[flot.dataIndex].label + "</div>\n<div class='value'>" + flot.series.data[flot.dataIndex][1] + "</div>";
+        },
+        cssClass: 'graph-tooltip'
       },
       bars: {
         align: 'center',
