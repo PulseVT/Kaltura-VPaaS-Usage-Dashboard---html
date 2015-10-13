@@ -85,7 +85,7 @@
 				<li class='active'>Account Usage Reports</li>
 				<li>Account Usage Reports</li>
 			</ul>
-			<i class='info'></i>
+			<i class='info' uib-tooltip='Info about header' tooltip-placement='left' tooltip-animation='true' tooltip-trigger='mouseenter' tooltip-append-to-body='true'></i>
 		</div>
 		<hr class='row-fluid'/>
 	</header>
@@ -129,8 +129,8 @@
 						<select2 ng-model="select.model" s2-options="range.id as range.name for range in select.data" options='select.options'></select2>
 					</span>
 					<span class='text'>Dates:</span>
-					<span datepicker='dateMin'></span>
-					<span datepicker='dateMax'></span>
+					<span kaltura-datepicker='dateMin'></span>
+					<span kaltura-datepicker='dateMax'></span>
 				</div>
 
 				<div class='row-fluid title-text'>
@@ -201,6 +201,7 @@
 	<script type="text/javascript" src='../bower_components/angular-flot/angular-flot.js'></script>
 	<script type="text/javascript" src="../bower_components/angular-ui-date/src/date.js"></script>
 	<script type="text/javascript" src='../bower_components/angular-select2/dist/angular-select2.js'></script>
+	<script type="text/javascript" src='../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
 	<script type="text/javascript" src='scripts/scripts.js'></script>
 
 	<!--

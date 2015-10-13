@@ -1,8 +1,8 @@
 var module;
 
-module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date', 'rt.select2']);
+module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date', 'rt.select2', 'ui.bootstrap']);
 
-module.directive('datepicker', function() {
+module.directive('kalturaDatepicker', function() {
   return {
     restrict: 'A',
     replace: true,

@@ -2,9 +2,10 @@ module = angular.module 'KalturaUsageDashboard', [
 	'angular-flot'
 	'ui.date'
 	'rt.select2'
+	'ui.bootstrap'
 ]
 
-module.directive 'datepicker', ->
+module.directive 'kalturaDatepicker', ->
 	restrict: 'A'
 	replace: yes
 	template: """
