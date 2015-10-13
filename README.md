@@ -4,6 +4,8 @@ Layout for Kaltura Usage Dashboard
 
 # Build and develop
 
+## Build
+
 Install Grunt CLI, unless it isnt installed
 
 > npm install -g grunt-cli
@@ -15,6 +17,10 @@ Install dependencies
 
 To build (compiles coffee, less and html), run
 > grunt build
+
+Resulting html will be located in `html` folder
+
+## Development
 
 To build initially and watch files for development, run
 > grunt
