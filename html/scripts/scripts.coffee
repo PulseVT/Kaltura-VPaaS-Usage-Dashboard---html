@@ -1,4 +1,8 @@
-module = angular.module 'KalturaUsageDashboard', ['angular-flot', 'ui.date']
+module = angular.module 'KalturaUsageDashboard', [
+	'angular-flot'
+	'ui.date'
+	'rt.select2'
+]
 
 module.directive 'datepicker', ->
 	restrict: 'A'
@@ -31,6 +35,27 @@ module.directive 'datepicker', ->
 module.controller 'KalturaUsageDashboardCtrl', ($scope) ->
 
 	#datepicker
+
+	#select
+	$scope.select =
+		data: [
+			id: 0
+			name: 'Current month'
+		,
+			id: 1
+			name: 'Last month'
+		,
+			id: 2
+			name: 'Last 3 months'
+		,
+			id: 3
+			name: 'Custom date range by month'
+		]
+		options:
+			allowClear: no
+			placeholder: 'Select period...'
+			minimumResultsForSearch: -1
+		model: 3
 
 	#constants for graph
 	colorColumn = '#02a3d1'

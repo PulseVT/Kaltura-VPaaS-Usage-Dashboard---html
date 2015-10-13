@@ -1,6 +1,6 @@
 var module;
 
-module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date']);
+module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date', 'rt.select2']);
 
 module.directive('datepicker', function() {
   return {
@@ -37,6 +37,29 @@ module.directive('datepicker', function() {
 
 module.controller('KalturaUsageDashboardCtrl', function($scope) {
   var borderWidth, colorAxis, colorColumn, data, mainBg;
+  $scope.select = {
+    data: [
+      {
+        id: 0,
+        name: 'Current month'
+      }, {
+        id: 1,
+        name: 'Last month'
+      }, {
+        id: 2,
+        name: 'Last 3 months'
+      }, {
+        id: 3,
+        name: 'Custom date range by month'
+      }
+    ],
+    options: {
+      allowClear: false,
+      placeholder: 'Select period...',
+      minimumResultsForSearch: -1
+    },
+    model: 3
+  };
   colorColumn = '#02a3d1';
   colorAxis = '#c2d2e1';
   mainBg = '#f0eeef';

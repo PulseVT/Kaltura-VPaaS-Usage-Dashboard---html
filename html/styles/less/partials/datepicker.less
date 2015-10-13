@@ -1,33 +1,31 @@
-@radius: 4px;
-@size: 24px;
 @icon-size: 14px;
 
 .datepicker{
-	height: @size;
-	line-height: @size;
+	height: @controls-row-height;
+	line-height: @controls-row-height;
 	padding: 0 10px;
 	input{
 		float: left;
 		font-size: @small-font;
-		height: @size;
-		line-height: @size;
+		height: @controls-row-height;
+		line-height: @controls-row-height;
 		width: 100px;
 		display: block;
+		.border();
 		border-bottom-left-radius: @radius;
 		border-top-left-radius: @radius;
-		border: 1px solid @dark-gray;
 		border-right: 0;
 		background: @white-bg;
 	}
 	.icon{
-		.gradient-table();
+		.gradient-control();
 		float: left;
 		cursor: pointer;
-		height: @size;
-		line-height: @size;
-		width: @size;
+		height: @controls-row-height;
+		line-height: @controls-row-height;
+		width: @controls-row-height;
 		display: block;
-		border: 1px solid @dark-gray;
+		.border();
 		border-bottom-right-radius: @radius;
 		border-top-right-radius: @radius;
 		i{
