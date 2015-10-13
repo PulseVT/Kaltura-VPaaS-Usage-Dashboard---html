@@ -2,7 +2,7 @@
   "name": "Kaltura VPaaS Usage Dashboard - html",
   "version": "1.0.0",
   "authors": [
-    "Vitaliy Tarash <vitaliy.tarash@gmail.com>"
+    "Vitaliy Tarash <tarash@steelkiwi.com>"
   ],
   "devDependencies": {
     "angular-flot": "~0.0.13",
