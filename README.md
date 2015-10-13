@@ -2,7 +2,7 @@
 
 Layout for Kaltura Usage Dashboard
 
-# Build and develop
+# Build and development
 
 ## Build
 
