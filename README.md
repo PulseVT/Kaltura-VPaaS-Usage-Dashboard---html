@@ -2,7 +2,7 @@
 
 Layout for Kaltura Usage Dashboard
 
-# Running
+# Build and develop
 
 Install dependencies
 > npm install
