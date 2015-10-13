@@ -7,6 +7,7 @@ Layout for Kaltura Usage Dashboard
 Install dependencies
 
 > npm install
+
 > bower install
 
 Run grunt to generate resulting html files which will be located in `html` folder
