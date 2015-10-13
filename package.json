@@ -1,6 +1,6 @@
 {
   "name": "KalturaVPaaSUsageDashboardHtml",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Vitaliy Tarash <tarash@steelkiwi.com>",
   "devDependencies": {
     "bootstrap": "^3.3.5",
