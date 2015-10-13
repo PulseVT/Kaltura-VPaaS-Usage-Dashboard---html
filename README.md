@@ -18,7 +18,7 @@ Install dependencies
 To build (compiles coffee, less and html), run
 > grunt build
 
-Resulting html will be located in `html` folder
+Resulting html files will be located in `html` folder
 
 ## Development
 
