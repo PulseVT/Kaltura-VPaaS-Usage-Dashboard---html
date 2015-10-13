@@ -1,4 +1,4 @@
-@box-shadow: none;
+@width: 200px;
 
 .select{
 	padding: 0 10px;
@@ -7,18 +7,21 @@
 
 	.select2-container{
 		height: @controls-row-height;
+		width: @width;
 		line-height: @controls-row-height;
 		font-size: @small-font;
 		display: block;
 		.select2-choice,.select2-choices{
 			.border();
 			.gradient-control();
-			box-shadow: @box-shadow;
+			box-shadow: none;
 			height: @controls-row-height;
 			line-height: @controls-row-height;
 			border-radius: @radius;
 			.select2-arrow{
 				border-left: 1px solid @dark-gray;
+				border-top-right-radius: @radius;
+				border-bottom-right-radius: @radius;
 				width: @controls-row-height;
 				b{
 					position: relative;
@@ -29,6 +32,15 @@
 			}
 			.select2-chosen{
 				margin-right: 32px;
+			}
+		}
+		&.select2-dropdown-open{
+			.select2-choice,.select2-choices{
+				border-bottom-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				.select2-arrow{
+					border-bottom-right-radius: 0px;
+				}
 			}
 		}
 	}
@@ -42,10 +54,12 @@
 
 .select2-drop{
 	font-size: @small-font;
-	box-shadow: @box-shadow;
+	box-shadow: none;
 	&:focus{
 		.border();
 	}
+	border-bottom-right-radius: @radius;
+	border-bottom-left-radius: @radius;
 }
 
 .select2-drop-active{
