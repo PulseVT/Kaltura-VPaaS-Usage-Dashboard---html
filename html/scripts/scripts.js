@@ -41,15 +41,12 @@ module.controller('KalturaUsageDashboardCtrl', function($scope) {
     data: [
       {
         id: 0,
-        name: 'Current month'
-      }, {
-        id: 1,
         name: 'Last month'
       }, {
-        id: 2,
+        id: 1,
         name: 'Last 3 months'
       }, {
-        id: 3,
+        id: 2,
         name: 'Custom date range by month'
       }
     ],
@@ -58,7 +55,7 @@ module.controller('KalturaUsageDashboardCtrl', function($scope) {
       placeholder: 'Select period...',
       minimumResultsForSearch: -1
     },
-    model: 3
+    model: 2
   };
   colorColumn = '#02a3d1';
   colorAxis = '#c2d2e1';
