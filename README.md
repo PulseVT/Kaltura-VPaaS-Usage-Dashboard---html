@@ -4,6 +4,10 @@ Layout for Kaltura Usage Dashboard
 
 # Build and develop
 
+Install Grunt CLI, unless it isnt installed
+
+> npm install -g grunt-cli
+
 Install dependencies
 > npm install
 
