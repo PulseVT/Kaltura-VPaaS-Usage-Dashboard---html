@@ -41,9 +41,13 @@ module.exports = (grunt) ->
 				flatten: yes
 				cwd: '.'
 
-	grunt.registerTask 'default', [
+	grunt.registerTask 'build', [
 		'coffee'
 		'less'
 		'includes'
+	]
+
+	grunt.registerTask 'default', [
+		'build'
 		'watch'
 	]

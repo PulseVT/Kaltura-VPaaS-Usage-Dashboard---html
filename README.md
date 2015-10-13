@@ -5,14 +5,18 @@ Layout for Kaltura Usage Dashboard
 # Running
 
 Install dependencies
-
 > npm install
 
 > bower install
 
-Run grunt to generate resulting html files which will be located in `html` folder
+To build (compiles coffee, less and html), run
+> grunt build
 
+To build initially and watch files for development, run
 > grunt
+
+To watch files only, run
+> grunt watch
 
 # Copyright & License
 
