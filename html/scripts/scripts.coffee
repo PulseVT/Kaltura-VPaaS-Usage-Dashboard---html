@@ -15,37 +15,37 @@ module.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 		url: '/overall-usage'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/overall-usage-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/overall-usage-report.html'
 	)
 	.state('plays',
 		url: '/plays'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/plays-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/plays-report.html'
 	)
 	.state('bandwidth',
 		url: '/bandwidth'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/bandwidth-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/bandwidth-report.html'
 	)
 	.state('storage',
 		url: '/storage'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/storage-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/storage-report.html'
 	)
 	.state('transcoding-consumption',
 		url: '/transcoding-consumption'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/transcoding-consumption-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/transcoding-consumption-report.html'
 	)
 	.state('media-entries',
 		url: '/media-entries'
 		views:
 			main:
-				templateUrl: 'html/html-source/pages/media-entries-report.html'
+				templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/media-entries-report.html'
 	)
 
 module.directive 'kalturaDatepicker', ->
