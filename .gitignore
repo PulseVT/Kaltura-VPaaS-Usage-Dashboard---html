@@ -6,5 +6,3 @@ tests
 *.doc*
 *.sublime*
 html/styles/usage-dashboard.css
-html/*.html
-*.html
