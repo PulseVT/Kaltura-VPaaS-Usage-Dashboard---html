@@ -7,7 +7,7 @@ module = angular.module 'KalturaUsageDashboard', [
 ]
 
 module.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
-	$urlRouterProvider.otherwise '/overall-usage'
+	$urlRouterProvider.otherwise '/KalturaVPaaSUsageDashboardHtml/overall-usage'
 	$locationProvider.html5Mode yes
 
 	$stateProvider

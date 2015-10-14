@@ -3,7 +3,7 @@ var module;
 module = angular.module('KalturaUsageDashboard', ['angular-flot', 'rt.select2', 'ui.date', 'ui.bootstrap', 'ui.router']);
 
 module.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-  $urlRouterProvider.otherwise('/overall-usage');
+  $urlRouterProvider.otherwise('/KalturaVPaaSUsageDashboardHtml/overall-usage');
   $locationProvider.html5Mode(true);
   return $stateProvider.state('overall-usage', {
     url: '/KalturaVPaaSUsageDashboardHtml/overall-usage',
