@@ -4,8 +4,6 @@ Layout for Kaltura Usage Dashboard
 
 # Build and development
 
-## Build
-
 Install Grunt CLI, unless it is installed
 
 > npm install -g grunt-cli
@@ -18,15 +16,11 @@ Install dependencies
 To build (compiles coffee, less and html), run
 > grunt build
 
-Resulting html files will be located in `html` folder
+Result of build is `index.html` file in the root
 
-## Development
-
-To build initially and watch files for development, run
+To build, serve and watch changes for development or to watch results in browser, run
 > grunt
-
-To watch files only, run
-> grunt watch
+This runs server on `localhost:9000` with hosted `index.html`
 
 # Copyright & License
 
