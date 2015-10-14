@@ -1,6 +1,6 @@
 {
   "name": "KalturaVPaaSUsageDashboardHtml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vitaliy Tarash <tarash@steelkiwi.com>",
   "devDependencies": {
     "connect-modrewrite": "^0.8.2",
