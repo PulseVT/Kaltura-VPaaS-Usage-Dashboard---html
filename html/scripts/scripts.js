@@ -1,6 +1,54 @@
 var module;
 
-module = angular.module('KalturaUsageDashboard', ['angular-flot', 'ui.date', 'rt.select2', 'ui.bootstrap']);
+module = angular.module('KalturaUsageDashboard', ['angular-flot', 'rt.select2', 'ui.date', 'ui.bootstrap', 'ui.router']);
+
+module.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider.otherwise('/overall-usage');
+  $locationProvider.html5Mode(true);
+  return $stateProvider.state('overall-usage', {
+    url: '/overall-usage',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/overall-usage-report.html'
+      }
+    }
+  }).state('plays', {
+    url: '/plays',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/plays-report.html'
+      }
+    }
+  }).state('bandwidth', {
+    url: '/bandwidth',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/bandwidth-report.html'
+      }
+    }
+  }).state('storage', {
+    url: '/storage',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/storage-report.html'
+      }
+    }
+  }).state('transcoding-consumption', {
+    url: '/transcoding-consumption',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/transcoding-consumption-report.html'
+      }
+    }
+  }).state('media-entries', {
+    url: '/media-entries',
+    views: {
+      main: {
+        templateUrl: 'html/html-source/pages/media-entries-report.html'
+      }
+    }
+  });
+});
 
 module.directive('kalturaDatepicker', function() {
   return {
@@ -35,8 +83,9 @@ module.directive('kalturaDatepicker', function() {
   };
 });
 
-module.controller('KalturaUsageDashboardCtrl', function($scope) {
+module.controller('KalturaUsageDashboardCtrl', function($scope, $state) {
   var borderWidth, colorAxis, colorColumn, data, mainBg;
+  $scope.state = $state;
   $scope.select = {
     data: [
       {

@@ -1,15 +1,26 @@
 module.exports = (grunt) ->
 
 	require('load-grunt-tasks') grunt
+	modrewrite = require 'connect-modrewrite'
+	serveStatic = require 'serve-static'
 
 	grunt.initConfig
 		config:
 			html: 'html'
 			html_source: '<%= config.html %>/html-source'
-			html_partials: '<%= config.html_source %>/partials'
 			scripts: '<%= config.html %>/scripts'
 			styles: '<%= config.html %>/styles'
 			less: '<%= config.styles %>/less'
+
+		connect:
+			html:
+				options:
+					port: 9000
+					middleware: (connect, options) ->
+						[
+							modrewrite [ '!(\\..+)$ /index.html [L]' ]
+							serveStatic '.'
+						]
 
 		watch:
 			less:
@@ -19,8 +30,8 @@ module.exports = (grunt) ->
 				files: '<%= config.scripts %>/**/*.coffee'
 				tasks: 'coffee:scripts'
 			html:
-				files: ['<%= config.html_source %>/*.html', '<%= config.html_partials %>/*.html']
-				tasks: 'includes:html'
+				files: ['<%= config.html_source %>/**/*.html']
+				tasks: 'includes:index'
 
 		coffee:
 			scripts:
@@ -35,11 +46,13 @@ module.exports = (grunt) ->
 					'<%= config.styles %>/usage-dashboard.css': '<%= config.less %>/main.less'
 
 		includes:
-			html:
-				src: ['<%= config.html_source %>/*.html']
-				dest: '<%= config.html %>'
+			index:
+				src: ['<%= config.html_source %>/index.html']
+				dest: __dirname
 				flatten: yes
 				cwd: '.'
+
+	grunt.registerTask 'default', ['serve']
 
 	grunt.registerTask 'build', [
 		'coffee'
@@ -47,7 +60,8 @@ module.exports = (grunt) ->
 		'includes'
 	]
 
-	grunt.registerTask 'default', [
+	grunt.registerTask 'serve', [
 		'build'
+		'connect:html'
 		'watch'
 	]

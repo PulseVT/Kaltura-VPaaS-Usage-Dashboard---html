@@ -7,3 +7,4 @@ tests
 *.sublime*
 html/styles/usage-dashboard.css
 html/*.html
+*.html
