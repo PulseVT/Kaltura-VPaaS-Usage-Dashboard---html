@@ -6,42 +6,42 @@ module.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/overall-usage');
   $locationProvider.html5Mode(true);
   return $stateProvider.state('overall-usage', {
-    url: '/overall-usage',
+    url: '/KalturaVPaaSUsageDashboardHtml/overall-usage',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/overall-usage-report.html'
       }
     }
   }).state('plays', {
-    url: '/plays',
+    url: '/KalturaVPaaSUsageDashboardHtml/plays',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/plays-report.html'
       }
     }
   }).state('bandwidth', {
-    url: '/bandwidth',
+    url: '/KalturaVPaaSUsageDashboardHtml/bandwidth',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/bandwidth-report.html'
       }
     }
   }).state('storage', {
-    url: '/storage',
+    url: '/KalturaVPaaSUsageDashboardHtml/storage',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/storage-report.html'
       }
     }
   }).state('transcoding-consumption', {
-    url: '/transcoding-consumption',
+    url: '/KalturaVPaaSUsageDashboardHtml/transcoding-consumption',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/transcoding-consumption-report.html'
       }
     }
   }).state('media-entries', {
-    url: '/media-entries',
+    url: '/KalturaVPaaSUsageDashboardHtml/media-entries',
     views: {
       main: {
         templateUrl: '/KalturaVPaaSUsageDashboardHtml/html/html-source/pages/media-entries-report.html'
