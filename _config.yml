@@ -1,2 +1,13 @@
-url: http://pulsevt.github.io
-baseurl: /KalturaVPaaSUsageDashboardHtml
+highlighter: pygments
+safe: true
+lsi: false
+
+# Site settings
+title: Kaltura VPaaS Usage Dashboard
+description: > # this means to ignore newlines until "baseurl:"
+  A blog about science, technology, society, and everything in-between.
+baseurl: "/kalturahtml" 
+url: "http://pulsevt.github.io"
+
+github_username:  PulseVT
+email: vitaliy.tarash@gmail.com
