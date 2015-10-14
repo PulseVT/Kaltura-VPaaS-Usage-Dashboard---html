@@ -20,6 +20,7 @@ Result of build is `index.html` file in the root
 
 To build, serve and watch changes for development or to watch results in browser, run
 > grunt
+
 This runs server on `localhost:9000` with hosted `index.html`
 
 # Copyright & License
