@@ -4,9 +4,7 @@ lsi: false
 
 # Site settings
 title: Kaltura VPaaS Usage Dashboard
-description: > # this means to ignore newlines until "baseurl:"
-  A blog about science, technology, society, and everything in-between.
-baseurl: "/kalturahtml" 
+baseurl: "/kaltura-html" 
 url: "http://pulsevt.github.io"
 
 github_username:  PulseVT
