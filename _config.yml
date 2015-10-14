@@ -20,5 +20,7 @@ category_dir: /
 #baseurl: /path/to/blog 
 baseurl: /kaltura-html
 
+url: /kaltura-html
+
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.md, package.json, Gruntfile.coffee, node_modules, bower_components]
