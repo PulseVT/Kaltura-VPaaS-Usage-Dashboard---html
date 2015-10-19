@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 				tasks: 'coffee:scripts'
 			html:
 				files: ['<%= config.html_source %>/**/*.html']
-				tasks: 'includes:index'
+				tasks: 'includes:static'
 
 		coffee:
 			scripts:
@@ -46,9 +46,9 @@ module.exports = (grunt) ->
 					'<%= config.styles %>/usage-dashboard.css': '<%= config.less %>/main.less'
 
 		includes:
-			index:
-				src: ['<%= config.html_source %>/index.html']
-				dest: __dirname
+			static:
+				src: ['<%= config.html_source %>/*.html']
+				dest: '<%= config.html %>'
 				flatten: yes
 				cwd: '.'
 

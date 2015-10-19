@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app='KalturaUsageDashboard'>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="title" content="Kaltura - Open Source Video Platform">
+	<meta name="robots" content="index, follow">
+	<meta name="description" content="Kaltura Management Console. Media Asset Management System. Video solutions for video streaming and video management. Kaltura - The Open Source Video Platform.">
+	<meta name="keywords" content="production, shows, talent, discover, contribute, share, enhance, first open source video platform, video editing, media collaboration, online video, movie, wikimentaries, wiki">
+	<meta name="language" content="en">
+	<meta name="verify-v1" content="JIjZEB+ZCdDyAw49II0fIpcLfFc40M9EzXEY5/Tva68=">
+
+	<title>KMC &gt; Usage Dashboard</title>
+	<!-- <base href="/"> -->
+
+	<link rel='shortcut icon' href='http://corp.kaltura.com/sites/default/files/favicon%20%289%29_0.ico' type='image/ico'>
+	<link rel="stylesheet" type="text/css" media="screen" href="html/styles/kmc.css">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="bower_components/select2/select2.css"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="html/styles/usage-dashboard.css">
+</head>
+
+<body ng-controller='KalturaUsageDashboardCtrl' ng-cloak>
+
+	<div id="kmcHeader">
+		<div id="logo"></div>
+		<ul id="hTabs">
+			<li>
+				<a id="dashboard" rel="">
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a id="content" rel="manage">
+					<span>Content</span>
+				</a>
+			</li>
+			<li>
+				<a id="studio" rel="universal_studio">
+					<span>Studio</span>
+				</a>
+			</li>
+			<li>
+				<a id="analytics" rel="contentDashboard">
+					<span>Analytics</span>
+				</a>
+			</li>
+			<li>
+				<a id="account" rel="overview">
+					<span>Settings</span>
+				</a>
+			</li>
+			<li>
+				<a id="account" rel="usageDashboard" class='active'>
+					<span>Account Usage Reports</span>
+				</a>
+			</li>
+		</ul>
+		<!-- <img class="langIcon" title="Select Language" src="/lib/images/kmc/en_US.png">
+		<div id="user">
+			<span class="left-arrow"></span>Roman Kreichman
+		</div>
+		<div id="user_links" style="width: 308px; visibility: visible; top: 6px; right: 29px; padding-top: 2px; padding-bottom: 2px;">
+			<span id="closeMenu"></span> &nbsp;&nbsp;
+			<span>
+				Roman Kreichman&nbsp;&nbsp; 
+				<a id="Logout">( Logout )</a>&nbsp;&nbsp; 
+			</span>
+			<span>
+				<span class="sep">|</span> &nbsp; 
+				<a id="Quickstart Guide">
+					User Manual
+				</a> &nbsp; 
+				<span class="sep">|</span> &nbsp;
+				<a id="Support">
+					Support
+				</a>
+			</span>
+		</div> -->
+	</div>
+
+	<header class="usage-dashboard-header row-fluid">
+		<div class='usage-dashboard-header-inner container-fluid'>
+			<ul class='usage-dashboard-header-menu'>
+				<!-- <li>Account Usage Reports</li> -->
+				<li class='active'>Account Usage Reports</li>
+				<!-- <li>Account Usage Reports</li> -->
+			</ul>
+			<i class='info' uib-tooltip='Info about header' tooltip-placement='left' tooltip-animation='true' tooltip-trigger='mouseenter' tooltip-append-to-body='true'></i>
+		</div>
+		<hr class='row-fluid'/>
+	</header>
+
+	<div class="usage-dashboard container-fluid">
+		<div class='main-content-wrapper row-fluid'>
+			
+			<div class='side-menu row-fluid span2'>
+				<ul class='top-ul'>
+					<li class='side-menu-top-ul-item'>
+						<span>
+							<a href='overall-usage-report.html'>
+								Dashboard Usage Reports
+							</a>
+						</span>
+					</li>
+					<li>
+						<ul class='inner-ul'>
+							<li>
+								<span>
+									<a href='overall-usage-report.html'>
+										Overall Usage Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='plays-report.html'>
+										Plays Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='bandwidth-report.html'>
+										Bandwidth Report
+									</a>
+								</span>
+							</li>
+							<li class='active'>
+								<span>
+									<a href='storage-report.html'>
+										Storage Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='transcoding-consumption-report.html'>
+										Transcoding Consumption Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='media-entries-report.html'>
+										Media Entries Report
+									</a>
+								</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class='main-content container-fluid span10' id='storage-report'>
+				<div class='row-fluid controls-row'>
+					<span class='text'>Date Range:</span>
+					<span class='select'>
+						<select2 ng-model="select.model" s2-options="range.id as range.name for range in select.data" options='select.options'></select2>
+					</span>
+					<span class='text'>Dates:</span>
+					<span kaltura-datepicker='dateMin'></span>
+					<span kaltura-datepicker='dateMax'></span>
+				</div>
+
+				<div class='row-fluid title-text'>
+					<span class='export-to-csv'>Export to CSV</span>
+				</div>
+
+				<div class='row-fluid graph-row'>
+					<flot dataset='graph.data' options='graph.options'></flot>
+				</div>
+
+
+				<div class='row-fluid'>
+					<table class='panel-table half-width row-fluid'>
+						<thead>
+							<tr>
+								<th class='span'>
+									<div class='title'>Average Storage</div>
+									<div class='units'>(MB)</div>
+									<div class='value'>444</div>
+								</th>
+								<th class='span'>
+									<div class='title'>Peak Storage</div>
+									<div class='units'>(MB)</div>
+									<div class='value'>3151</div>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+
+				<div class='row-fluid'>
+					<table class='usual-table half-width row-fluid'>
+						<thead>
+							<tr>
+								<th>Average Storage, MB</th>
+								<th>Peak Storage, MB</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class='even'>
+								<td>23940</td>
+								<td>425326</td>
+							</tr>
+							<tr class='odd'>
+								<td>23940</td>
+								<td>425326</td>
+							</tr>
+							<tr class='even'>
+								<td>23940</td>
+								<td>425326</td>
+							</tr>
+							<tr class='odd'>
+								<td>23940</td>
+								<td>425326</td>
+							</tr>
+							<tr class='even'>
+								<td>23940</td>
+								<td>425326</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-ui/jquery-ui.min.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.canvas.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.categories.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.crosshair.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.errorbars.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.fillbetween.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.navigate.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.pie.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.resize.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.selection.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.stack.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.symbol.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.threshold.js'></script>
+	<script type="text/javascript" src='bower_components/jquery-flot/jquery.flot.time.js'></script>
+	<script type="text/javascript" src='bower_components/flot-axislabels/jquery.flot.axislabels.js'></script>
+	<script type="text/javascript" src='bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js'></script>
+	<script type="text/javascript" src='bower_components/select2/select2.min.js'></script>
+
+	<script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+	<script type="text/javascript" src='bower_components/angular-ui-router/release/angular-ui-router.min.js'></script>
+	<script type="text/javascript" src='bower_components/angular-flot/angular-flot.js'></script>
+	<script type="text/javascript" src="bower_components/angular-ui-date/src/date.js"></script>
+	<script type="text/javascript" src='bower_components/angular-select2/dist/angular-select2.js'></script>
+	<script type="text/javascript" src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+	<script type="text/javascript" src='html/scripts/scripts.js'></script>
+
+	<!--
+		IE8 support, see AngularJS Internet Explorer Compatibility http://docs.angularjs.org/guide/ie
+		For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+	-->
+	<!--[if lt IE 9]>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+		<script>
+			document.createElement('ui-select');
+			document.createElement('ui-select-match');
+			document.createElement('ui-select-choices');
+			document.createElement('header');
+			document.createElement('article');
+			document.createElement('section');
+			document.createElement('aside');
+			document.createElement('nav');
+			document.createElement('footer');
+		</script>
+	<![endif]-->
+
+</body>
+
+</html>

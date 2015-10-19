@@ -1,0 +1,81 @@
+include "partials/html.html"
+
+include "partials/head.html"
+
+<body ng-controller='KalturaUsageDashboardCtrl' ng-cloak>
+
+	include "partials/kmc-header.html"
+
+	include "partials/header.html"
+
+	<div class="usage-dashboard container-fluid">
+		<div class='main-content-wrapper row-fluid'>
+			
+			<div class='side-menu row-fluid span2'>
+				<ul class='top-ul'>
+					<li class='side-menu-top-ul-item'>
+						<span>
+							<a href='overall-usage-report.html'>
+								Dashboard Usage Reports
+							</a>
+						</span>
+					</li>
+					<li>
+						<ul class='inner-ul'>
+							<li class='active'>
+								<span>
+									<a href='overall-usage-report.html'>
+										Overall Usage Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='plays-report.html'>
+										Plays Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='bandwidth-report.html'>
+										Bandwidth Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='storage-report.html'>
+										Storage Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='transcoding-consumption-report.html'>
+										Transcoding Consumption Report
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>
+									<a href='media-entries-report.html'>
+										Media Entries Report
+									</a>
+								</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			include "pages/overall-usage-report.html"
+
+		</div>
+	</div>
+
+	include "partials/scripts.html"
+
+</body>
+
+</html>
